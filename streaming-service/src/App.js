@@ -69,8 +69,7 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
+            We offer all genres of movies and tv shows at an affordable price! 
           </Typography>
         </AccordionDetails>
       </Accordion>
