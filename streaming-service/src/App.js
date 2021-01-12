@@ -86,4 +86,16 @@ export default function SimpleAccordion() {
   );
 }
 
+<form className={classes.container} noValidate>
+  <TextField
+    id="datetime-local"
+    label="Next appointment"
+    type="datetime-local"
+    defaultValue="2021-01-12 T 03:30PM"
+    className={classes.textField}
+    InputLabelProps={{
+      shrink: true,
+    }}
+  />
+</form>
 export default App;
