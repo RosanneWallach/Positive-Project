@@ -2,90 +2,92 @@ import logo from './logo.svg';
 import './App.css';
 
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Skeleton from '@material-ui/lab/Skeleton';
-
+import Avatar from '@material-ui/core/Avatar';
 
 import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import EditIcon from '@material-ui/icons/Edit';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import NavigationIcon from '@material-ui/icons/Navigation';
+import Popover from '@material-ui/core/Popover';
+let anchorEl;
+let open = false;
+const handleClick = (event) => {
+  anchorEl = event.currentTarget
+  open = true;
+  console.log("testing");
+};
 
 function App() {
   return (
+  
     <div>
- 
-      <Box display="flex" alignItems="center">
-        <Box margin={1}>
-          {loading ? (
-            <Skeleton variant="circle">
-              <Avatar />
-            </Skeleton>
-          ) : (
-            <Avatar src="https://pbs.twimg.com/profile_images/877631054525472768/Xp5FAPD5_reasonably_small.jpg" />
-          )}
-        </Box>
-        <Box width="100%">
-          {loading ? (
-            <Skeleton width="100%">
-              <Typography>.</Typography>
-            </Skeleton>
-          ) : (
-            <Typography>Ted</Typography>
-          )}
-        </Box>
+    <Avatar alt="Remy Sharp" src="https://www.regmovies.com/magnoliaPublic/dam/jcr:7372c5b5-e8bf-4169-ab11-1a91291e7d97/The-Suicide-Squad-Empire-Magazine-Cover.jpg" onClick={handleClick}/>
+    <Popover
+        open={open}
+        anchorEl={anchorEl}
+        // onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography>The content of the Popover.</Typography>
+      </Popover>
+    <Box component="fieldset" mb={3} borderColor="transparent">
+        <Typography component="legend">Read only</Typography>
+        <Rating name="read-only" value={5} readOnly />
       </Box>
-      {loading ? (
-        <Skeleton variant="rect" width="100%">
-          <div style={{ paddingTop: '57%' }} />
-        </Skeleton>
-      ) : (
-        <img
-          className={classes.image}
-          src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/72bda89f-9bbf-4685-910a-2f151c4f3a8a/NicolaSturgeon_2019T-embed.jpg?w=512"
-          alt=""
-        />
-      )}
 
 
-
-      <Rating
-        name="hover-feedback"
-        value={value}
-        precision={0.5}
-        onChange={(event, newValue) => {
-          setValue(newValue);
+    <Avatar alt="Travis Howard" src="https://m.media-amazon.com/images/M/MV5BZGE2MmQ0ZTEtM2FjOC00OTE1LTlmYjMtYjlkMzllN2RlOTBiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" onClick={handleClick}/>
+    <Popover
+        open={open}
+        anchorEl={anchorEl}
+        // onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
-        onChangeActive={(event, newHover) => {
-          setHover(newHover);
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
         }}
-      />
-      {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
+      >
+        <Typography>The content of the Popover.</Typography>
+      </Popover>
+    <Box component="fieldset" mb={3} borderColor="transparent">
+        <Typography component="legend">Read only</Typography>
+        <Rating name="read-only" value={4} readOnly />
+      </Box>
 
 
-      
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
-      <Fab color="secondary" aria-label="edit">
-        <EditIcon />
-      </Fab>
-      <Fab variant="extended">
-        <NavigationIcon className={classes.extendedIcon} />
-        Navigate
-      </Fab>
-      <Fab disabled aria-label="like">
-        <FavoriteIcon />
-      </Fab>
-
-    </div>
+    <Avatar alt="Cindy Baker" src="https://www.filmstories.co.uk/wp-content/uploads/2020/02/spiral-poster.jpg" onClick={handleClick}/>
+    <Popover
+        open={open}
+        anchorEl={anchorEl}
+        // onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography>The content of the Popover.</Typography>
+      </Popover>
+    <Box component="fieldset" mb={3} borderColor="transparent">
+        <Typography component="legend">Read only</Typography>
+        <Rating name="read-only" value={3} readOnly />
+      </Box>
+  
+  </div>
   );
 }
 
