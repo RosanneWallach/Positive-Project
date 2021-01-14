@@ -53,7 +53,7 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    left: false,
+    menu: false,
   });
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -252,7 +252,7 @@ function App() {
         <FormControlLabel disabled control={<Switch />} label="Dark Mode" />
       </FormGroup>
       <div>
-        {["menu"].map((anchor) => (
+        {['menu'].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
             <Drawer
