@@ -25,6 +25,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import TextField from "@material-ui/core/TextField";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -344,7 +351,72 @@ function App() {
       </div>
     </div> 
 {/*Niseekah  ===============================================================================================================================*/}   
+    
+      {/*Md*/}
+
+      <div >
+      <Paper >
+        <MenuList>
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>My account</MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </MenuList>
+      </Paper>
+      <div>
+        <Button
+          
+          aria-haspopup="true"
+         
+        >
+          Toggle Menu Grow
+        </Button>
+        <Popper >
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+            >
+              <Paper>
+                <ClickAwayListener >
+                  <MenuList >
+                    <MenuItem >Profile</MenuItem>
+                    <MenuItem >My account</MenuItem>
+                    <MenuItem >Logout</MenuItem>
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
+      </div>
     </div>
+      <div>
+      
+      <Button variant="contained" color="yellow">
+        New Movies
+      </Button>
+      
+      <Button variant="contained" color="primary" href="#contained-buttons">
+        Hollywood Movies
+      </Button>
+    </div>
+    <div><br></br><br></br></div>
+    <List subheader={<li />}>
+      {[0, 1, 2, 3, 4].map((sectionId) => (
+        <li key={`section-${sectionId}`} >
+          <ul >
+            <ListSubheader>{`Category ${sectionId}`}</ListSubheader>
+            {[0, 1, 2].map((item) => (
+              <ListItem key={`item-${sectionId}-${item}`}>
+                <ListItemText primary={`Item ${item}`} />
+              </ListItem>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </List>
+    </div>
+  
   );
 }
 
